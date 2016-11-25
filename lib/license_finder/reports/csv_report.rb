@@ -28,7 +28,7 @@ module LicenseFinder
     end
 
     def format_texts(dep)
-      dep.license_files.map { |file| file.text.split(/[\n\r]+/).join("\\@NL") }.join("\\@NL")
+      dep.license_files.map { |file| file.text.split(/[\n\r]+/).join("\\@NL") }.join("\\@NL").force_encoding("ISO-8859-1").encode("UTF-8")
     end
 
     def format_name(dep)
